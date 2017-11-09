@@ -13,6 +13,32 @@ class SegContainerViewController: UIViewController {
 	@IBOutlet weak var profileContainerView: UIView!
 	@IBOutlet weak var modelsContainerView: UIView!
 
+	// we'll use this to update a label in the ModelsVC
+	var countOfModelsViews = 0
+	
+	var theProfileVC: ProfileTableViewController?
+	var theModelsVC: ModelsViewControler?
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
+		if let vc = segue.destination as? ProfileTableViewController {
+			
+			// set the number of rows in each section array in the ProfileVC
+			vc.numRowsArray = [2, 3]
+			
+			// save a reference so we can use it later
+			theProfileVC = vc
+		}
+		
+		if let vc = segue.destination as? ModelsViewControler {
+
+			// save a reference so we can use it later
+			theModelsVC = vc
+
+		}
+		
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,6 +71,10 @@ class SegContainerViewController: UIViewController {
 			})
 			
 		} else {
+			
+			// we're going to show the ModelsVC, so increment our counter and update the value in the Models view
+			countOfModelsViews += 1
+			theModelsVC?.theLabel.text = "ModelsVC has been seen \(countOfModelsViews) times!"
 			
 			self.modelsContainerView.isHidden = false
 			UIView.animate(withDuration: 0.5, animations: {

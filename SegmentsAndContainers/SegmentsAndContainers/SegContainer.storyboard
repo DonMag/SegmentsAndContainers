@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -49,14 +50,14 @@
                                 <rect key="frame" x="0.0" y="109" width="375" height="558"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="QEA-X1-uF7" kind="embed" id="MV5-IA-uDV"/>
+                                    <segue destination="QEA-X1-uF7" kind="embed" identifier="" id="MV5-IA-uDV"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oOE-9L-eaH">
                                 <rect key="frame" x="0.0" y="109" width="375" height="558"/>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="ktv-Cv-gVs" kind="embed" id="UeP-ys-TUp"/>
+                                    <segue destination="ktv-Cv-gVs" kind="embed" identifier="" id="UeP-ys-TUp"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -142,8 +143,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="558"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Models" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbg-zj-20X">
-                                <rect key="frame" x="136" y="259.5" width="104" height="39"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Models" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbg-zj-20X">
+                                <rect key="frame" x="38" y="259.5" width="300" height="39"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -152,9 +153,13 @@
                         <color key="backgroundColor" red="0.99215686270000003" green="0.0039215686269999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dbg-zj-20X" firstAttribute="centerX" secondItem="ghM-yI-xxh" secondAttribute="centerX" id="W2h-Bk-EyZ"/>
+                            <constraint firstItem="dbg-zj-20X" firstAttribute="width" secondItem="ghM-yI-xxh" secondAttribute="width" multiplier="0.8" id="fdg-1o-6vF"/>
                             <constraint firstItem="dbg-zj-20X" firstAttribute="centerY" secondItem="ghM-yI-xxh" secondAttribute="centerY" id="o0C-eL-gPY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="theLabel" destination="dbg-zj-20X" id="nSY-jk-znh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6y6-kK-sKW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,6 +10,8 @@ import UIKit
 
 class ModelsViewControler: UIViewController {
 	
+	@IBOutlet weak var theLabel: UILabel!
+	
 }
 
 class ProfileCell: UITableViewCell {
@@ -19,6 +21,8 @@ class ProfileCell: UITableViewCell {
 }
 
 class ProfileTableViewController: UITableViewController {
+	
+	var numRowsArray = [1, 1]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,19 +48,25 @@ class ProfileTableViewController: UITableViewController {
 	
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return numRowsArray.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return numRowsArray[section]
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileCell", for: indexPath) as! ProfileCell
 
         // Configure the cell...
-		cell.theLabel.text = "I'm trying to use a segment controller to switch between my tableView and a container view, but when I try to switch between them it only half works. The TableView appears and disappears, but the container view never appears."
+		if indexPath.section == 0 && indexPath.row == 0 {
+			cell.theLabel.text = "I'm trying to use a segment controller to switch between my tableView and a container view, but when I try to switch between them it only half works. The TableView appears and disappears, but the container view never appears."
+		} else if indexPath.section == 1 && indexPath.row == 2 {
+			cell.theLabel.text = "You wouldn't see this if the MainVC had not been able to communicate with this VC"
+		} else {
+			cell.theLabel.text = "\(indexPath)"
+		}
 
         return cell
     }
