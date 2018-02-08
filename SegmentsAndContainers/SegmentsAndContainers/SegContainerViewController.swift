@@ -59,7 +59,7 @@ class SegContainerViewController: UIViewController {
 		if sender.selectedSegmentIndex == 0 {
 			
 			self.profileContainerView.isHidden = false
-			UIView.animate(withDuration: 0.5, animations: {
+			UIView.animate(withDuration: 0.25, animations: {
 				
 				self.profileContainerView.alpha = 1
 				self.modelsContainerView.alpha = 0
@@ -77,7 +77,7 @@ class SegContainerViewController: UIViewController {
 			theModelsVC?.theLabel.text = "ModelsVC has been seen \(countOfModelsViews) times!"
 			
 			self.modelsContainerView.isHidden = false
-			UIView.animate(withDuration: 0.5, animations: {
+			UIView.animate(withDuration: 0.25, animations: {
 				
 				self.profileContainerView.alpha = 0
 				self.modelsContainerView.alpha = 1
